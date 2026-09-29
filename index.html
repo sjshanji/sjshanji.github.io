@@ -23,15 +23,13 @@
     <div id="root"></div>
 <script>
 window.addEventListener('load', function(){
-  // 创建视频播放器（用来放背景音乐，隐藏画面）
   const video = document.createElement('video');
   video.src = 'bgm.mp4';
   video.loop = true;
   video.volume = 0.35;
-  video.style.display = 'none'; // 隐藏视频画面
+  video.style.display = 'none';
   document.body.appendChild(video);
 
-  // 创建右下角按钮
   const btn = document.createElement('button');
   btn.innerText = "▶ 播放背景音乐";
   btn.style.position = "fixed";
@@ -47,14 +45,18 @@ window.addEventListener('load', function(){
   btn.style.boxShadow = "0 2px 8px rgba(0,0,0,0.15)";
   document.body.appendChild(btn);
 
-  // 点击切换播放暂停
-  btn.onclick = function(){
-    if(video.paused){
-      video.play();
-      btn.innerText = "⏸ 暂停音乐";
-    }else{
-      video.pause();
-      btn.innerText = "▶ 播放背景音乐";
+  btn.onclick = async function(){
+    try {
+      if(video.paused){
+        await video.play();
+        btn.innerText = "⏸ 暂停音乐";
+      }else{
+        video.pause();
+        btn.innerText = "▶ 播放背景音乐";
+      }
+    } catch(err) {
+      alert("音频加载失败，请检查bgm.mp4文件");
+      console.log(err);
     }
   }
 })
