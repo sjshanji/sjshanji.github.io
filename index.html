@@ -21,25 +21,26 @@
   </head>
   <body>
     <div id="root"></div>
- <audio id="bgMusic" loop>
-  <source src="bgm.mp3" type="audio/mpeg">
+<audio id="bgMusic" loop>
+<source src="bgm.mp3" type="audio/mpeg">
 
 
 <button id="musicBtn" style="position:fixed;bottom:24px;right:24px;padding:9px 14px;border-radius:10px;border:none;background:#4a6c94;color:#fff;font-size:14px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.15);">
-  ▶ 播放背景音乐
+▶ 播放背景音乐
 </button>
 <script>
-  const audio = document.getElementById("bgMusic");
-  const btn = document.getElementById("musicBtn");
-  audio.volume = 0.35;
-  btn.onclick = function(){
-    if(audio.paused){
-      audio.play();
-      btn.innerText = "⏸ 暂停音乐";
-    }else{
-      audio.pause();
-      btn.innerText = "▶ 播放背景音乐";
-    }
+const audio = document.getElementById("bgMusic");
+const btn = document.getElementById("musicBtn");
+audio.volume = 0.35;
+btn.onclick = function(){
+  if(audio.paused){
+    audio.play();
+    btn.innerText = "⏸ 暂停音乐";
+  }else{
+    audio.pause();
+    btn.innerText = "▶ 播放背景音乐";
   }
-</script> </body>
+}
+</script>
+</body>
 </html>
